@@ -1,11 +1,12 @@
 
 
+
 import { createSlice } from '@reduxjs/toolkit';
 
 const loadCartFromLocalStorage = () => {
   try {
     const data = localStorage.getItem('cart');
-    return data ? JSON.parse(data) : {};
+    return data ? JSON.parse(data) : {}; 
   } catch (error) {
     console.error('Error loading cart from localStorage:', error);
     return {};
@@ -58,4 +59,8 @@ export const selectCounter = (state, id) => state.counter[id] || 0;
 export const selectTotalCount = (state) =>
   Object.values(state.counter).reduce((total, count) => total + count, 0);
 export const selectCart = (state) => state.counter;
+
 export default counterSlice.reducer;
+
+
+

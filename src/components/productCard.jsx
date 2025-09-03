@@ -18,18 +18,6 @@ const ProductCard = ({ product }) => {
     navigate(`/product/${product.id}`);
   };
 
-  
-  // useEffect(() => {
-  //   const savedData = localStorage.getItem(`counter_${product.id}`);
-  //   if (savedData) {
-  //     dispatch(setCounter({ id: product.id, value: Number(savedData) }));
-  //   }
-  // }, [product.id, dispatch]);
-
-  // useEffect(() => {
-  //   localStorage.setItem(`counter_${product.id}`, count);
-  // }, [count, product.id]);
-
   return (
     <div className="bg-white shadow-md rounded-lg">
       <div

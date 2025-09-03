@@ -1,28 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { decrement, increment, reset, selectCart, selectTotalCount } from '../../redux/CounterSlice';
 import { AllProduct } from '../../constant/productData';
-
+import { addToCart } from '../../redux/viewCartSlice';
 
 const Cart = () => {
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
   const totalCount = useSelector(selectTotalCount);
 
-
+  // Prepare cart items with full details
   const cartItems = Object.keys(cart)
-  .filter((id) => cart[id] > 0) 
-  .map((id) => {
-    const product = AllProduct.find((item) => item.id === Number(id));
-    return {
-      ...product,
-      quantity: cart[id],
-      totalPrice: cart[id] * product.price,
-    };
-  });
+    .filter((id) => cart[id] > 0)
+    .map((id) => {
+      const product = AllProduct.find((item) => item.id === Number(id));
+      return {
+        ...product,
+        quantity: cart[id],
+        totalPrice: cart[id] * product.price,
+      };
+    });
 
   const grandTotal = cartItems.reduce((sum, item) => sum + item.totalPrice, 0);
+
+  // Sync the Redux "viewCart" slice whenever cart changes
+  useEffect(() => {
+    cartItems.forEach(item => {
+      dispatch(addToCart(item));
+    });
+  }, [cartItems, dispatch]);
 
   return (
     <div className="p-6">
@@ -35,7 +41,11 @@ const Cart = () => {
           {cartItems.map((item) => (
             <div key={item.id} className="flex justify-between items-center border p-4 rounded">
               <div className="flex items-center gap-4">
-                <img src={item.product_img} alt={item.product_name} className="w-16 h-16 object-cover rounded" />
+                <img
+                  src={item.product_img}
+                  alt={item.product_name}
+                  className="w-16 h-16 object-cover rounded"
+                />
                 <div>
                   <h3 className="font-semibold">{item.product_name}</h3>
                   <p className="text-gray-600">₹{item.price} each</p>
@@ -79,4 +89,3 @@ const Cart = () => {
 };
 
 export default Cart;
-

@@ -5,7 +5,7 @@ import TS_white from '../assets/ts_white.jpg';
 import TS_white_FEMALE from '../assets/women_black_tshirt.jpg';
 import TS_Grey_FEMALE from '../assets/women_tshirt_grey.jpg';
 import Shirt_flower from '../assets/men_shirt_flower.jpg';
-import Shirt_white from '../assets/men_shirt_white.jpg'; // ✅ Added import
+import Shirt_white from '../assets/men_shirt_white.jpg';
 import cargo_jeans from '../assets/pant_jeans.jpg';
 
 export const AllProduct = [

@@ -1,37 +1,3 @@
-// // redux/CounterSlice.js
-// import { createSlice } from '@reduxjs/toolkit';
-
-// const counterSlice = createSlice({
-//   name: 'counter',
-//   initialState: {}, 
-//   reducers: {
-//     increment: (state, action) => {
-//       const id = action.payload;
-//       state[id] = (state[id] || 0) + 1;
-//     },
-//     decrement: (state, action) => {
-//       const id = action.payload;
-//       if (state[id] && state[id] > 0) {
-//         state[id] -= 1;
-//       }
-//     },
-//     setCounter: (state, action) => {
-//       const { id, value } = action.payload;
-//       state[id] = value;
-//     },
-//     reset: (state, action) => {
-//       const id = action.payload;
-//       state[id] = 0;
-//     },
-//   },
-// });
-
-// export const { increment, decrement, setCounter, reset } = counterSlice.actions;
-// export const selectCounter = (state, id) => state.counter[id] || 0;
-// export const selectTotalCount = (state) => {
-//   return Object.values(state.counter).reduce((total, count) => total + count, 0);
-// };
-// export default counterSlice.reducer;
 
 
 import { createSlice } from '@reduxjs/toolkit';

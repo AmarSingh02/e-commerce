@@ -100,3 +100,7 @@ button:focus-visible {
   left: 0;
   }
 }
+
+input{
+  border: 1px solid;
+}

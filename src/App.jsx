@@ -6,10 +6,14 @@ import Product from './pages/productPage/Product'
 import NotFound from './pages/NotFound'
 import Cart from './pages/cart/Cart'
 import ProductDetails from './pages/productPage/ProductDetails'
+import { PraticeTheme } from "./pages/pratice/Pratice";
+import Suggestion from './pages/pratice'
+
 
 const App = () => {
   return (
     <div>
+       <PraticeTheme> 
 <BrowserRouter>
 
 <div className="flex flex-col h-full">
@@ -20,12 +24,13 @@ const App = () => {
 
     <Sidebar/>
 
-    <main className='flex-1  p-6 bg-gray-100  pt-8 ml-36 h-full'>
+    <main className='flex-1  p-6 bg-gray-100  pt-8 ml-36 h-screen'>
 
       <Routes>
         <Route path='/product' element={<Product/>}/>
            <Route path='/product/:id' element={<ProductDetails/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/pratice' element={<Suggestion/>}/>
         <Route path='/*' element={<NotFound/>}/>
       </Routes>
     </main>
@@ -33,6 +38,7 @@ const App = () => {
 
 </div>
 </BrowserRouter>
+</PraticeTheme>
     </div>
   )
 }

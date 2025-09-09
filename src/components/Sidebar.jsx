@@ -27,6 +27,18 @@ const Sidebar = () => {
         >
         View Cart
         </NavLink>
+        <NavLink
+          to="/pratice"
+          className={({ isActive }) =>
+            `relative p-2 rounded hover:bg-blue-400 
+             after:absolute after:left-0 after:top-0 after:w-[3px] after:h-full 
+             ${isActive ? 'after:bg-blue-500 ' : 'after:bg-transparent'}`
+          }
+        >
+      Pratice 
+        </NavLink>
+
+       
       </nav>
     </aside>
   );
